@@ -44,4 +44,43 @@
       <file name="/umbraco/developer/RelationTypes/TreeMenu/ActionNewRelationType.js" />
     </files>
   </item>
+  <item key="L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL05hbWVzcGFjZU1hbmFnZXIuanM7L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL1VtYnJhY29VdGlscy5qczsvdW1icmFjb19jbGllbnQvdWkvanNvbjIuanM7L3VtYnJhY29fY2xpZW50L3VpL2Jhc2UyLmpzOy91bWJyYWNvX2NsaWVudC9VSS9rbm9ja291dC5qczsvdW1icmFjb19jbGllbnQvVUkva25vY2tvdXQubWFwcGluZy5qczs" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_95b29913b6184967a9ef7b8eb0df8638.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco_client/Application/NamespaceManager.js" />
+      <file name="/umbraco_client/Application/UmbracoUtils.js" />
+      <file name="/umbraco_client/ui/json2.js" />
+      <file name="/umbraco_client/ui/base2.js" />
+      <file name="/umbraco_client/UI/knockout.js" />
+      <file name="/umbraco_client/UI/knockout.mapping.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY29fY2xpZW50L3VpL2pxdWVyeS5qczsvdW1icmFjb19jbGllbnQvdWkvanF1ZXJ5dWkuanM7L3VtYnJhY28vbGliL2pxdWVyeS1taWdyYXRlL2pxdWVyeS1taWdyYXRlLm1pbi5qczs" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_1c9fc77e103842ff9141b5f55ebbc094.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco_client/ui/jquery.js" />
+      <file name="/umbraco_client/ui/jqueryui.js" />
+      <file name="/umbraco/lib/jquery-migrate/jquery-migrate.min.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vYXNzZXRzL2Nzcy91bWJyYWNvLmNzczs" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_b32d84bc1fac42d0933e1e973891574a.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/assets/css/umbraco.css" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY29fY2xpZW50L3VpL2RlZmF1bHQuanM7" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_99d5055c62e348cc843a913e72f2fc9e.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco_client/ui/default.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL0V4dGVuc2lvbnMuanM7L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL1VtYnJhY29BcHBsaWNhdGlvbkFjdGlvbnMuanM7L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL0hpc3RvcnlNYW5hZ2VyLmpzOw" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_d0832e351eb440b88e8c512992f14ea6.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco_client/Application/Extensions.js" />
+      <file name="/umbraco_client/Application/UmbracoApplicationActions.js" />
+      <file name="/umbraco_client/Application/HistoryManager.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY29fY2xpZW50L0FwcGxpY2F0aW9uL1VtYnJhY29DbGllbnRNYW5hZ2VyLmpzOw" file="C:\Users\BiancaCardona\source\repos\7.12.4\7.12.4\App_Data\TEMP\ClientDependency\1_d1fb31efcccd4798ba864db273406305.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco_client/Application/UmbracoClientManager.js" />
+    </files>
+  </item>
 </map>

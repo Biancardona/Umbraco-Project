@@ -19,14 +19,14 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f2897ed2dca07d90")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.6")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "afcb90315ab96592")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("home")]
-	public partial class Home : PublishedContentModel, IBasicContentControls
+	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "home";
@@ -50,12 +50,48 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Title: Enter a title
+		/// Main Content: Enter the main content for this page
+		///</summary>
+		[ImplementPropertyType("mainContent")]
+		public IHtmlString MainContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetMainContent(this); }
+		}
+
+		///<summary>
+		/// Page Title: Enter a title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Title Mobile Mode: Enter the title will be displayed in mobile mode
+		///</summary>
+		[ImplementPropertyType("titleMobileMode")]
+		public string TitleMobileMode
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetTitleMobileMode(this); }
+		}
+
+		///<summary>
+		/// Title: Enter a title for the page
 		///</summary>
 		[ImplementPropertyType("title")]
 		public string Title
 		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetTitle(this); }
+			get { return Umbraco.Web.PublishedContentModels.HeaderControl.GetTitle(this); }
+		}
+
+		///<summary>
+		/// Main Image: Choose the main background image
+		///</summary>
+		[ImplementPropertyType("mainImage")]
+		public IPublishedContent MainImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
 		}
 	}
 
@@ -63,8 +99,14 @@ namespace Umbraco.Web.PublishedContentModels
 	/// <summary>Basic Content Controls</summary>
 	public partial interface IBasicContentControls : IPublishedContent
 	{
-		/// <summary>Title</summary>
-		string Title { get; }
+		/// <summary>Main Content</summary>
+		IHtmlString MainContent { get; }
+
+		/// <summary>Page Title</summary>
+		string PageTitle { get; }
+
+		/// <summary>Title Mobile Mode</summary>
+		string TitleMobileMode { get; }
 	}
 
 	/// <summary>Basic Content Controls</summary>
@@ -93,7 +135,77 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Title: Enter a title
+		/// Main Content: Enter the main content for this page
+		///</summary>
+		[ImplementPropertyType("mainContent")]
+		public IHtmlString MainContent
+		{
+			get { return GetMainContent(this); }
+		}
+
+		/// <summary>Static getter for Main Content</summary>
+		public static IHtmlString GetMainContent(IBasicContentControls that) { return that.GetPropertyValue<IHtmlString>("mainContent"); }
+
+		///<summary>
+		/// Page Title: Enter a title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return GetPageTitle(this); }
+		}
+
+		/// <summary>Static getter for Page Title</summary>
+		public static string GetPageTitle(IBasicContentControls that) { return that.GetPropertyValue<string>("pageTitle"); }
+
+		///<summary>
+		/// Title Mobile Mode: Enter the title will be displayed in mobile mode
+		///</summary>
+		[ImplementPropertyType("titleMobileMode")]
+		public string TitleMobileMode
+		{
+			get { return GetTitleMobileMode(this); }
+		}
+
+		/// <summary>Static getter for Title Mobile Mode</summary>
+		public static string GetTitleMobileMode(IBasicContentControls that) { return that.GetPropertyValue<string>("titleMobileMode"); }
+	}
+
+	// Mixin content Type 1070 with alias "headerControl"
+	/// <summary>Header Control</summary>
+	public partial interface IHeaderControl : IPublishedContent
+	{
+		/// <summary>Title</summary>
+		string Title { get; }
+	}
+
+	/// <summary>Header Control</summary>
+	[PublishedContentModel("headerControl")]
+	public partial class HeaderControl : PublishedContentModel, IHeaderControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "headerControl";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public HeaderControl(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<HeaderControl, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Title: Enter a title for the page
 		///</summary>
 		[ImplementPropertyType("title")]
 		public string Title
@@ -102,7 +214,53 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		/// <summary>Static getter for Title</summary>
-		public static string GetTitle(IBasicContentControls that) { return that.GetPropertyValue<string>("title"); }
+		public static string GetTitle(IHeaderControl that) { return that.GetPropertyValue<string>("title"); }
+	}
+
+	// Mixin content Type 1071 with alias "mainImageControls"
+	/// <summary>Main Image Controls</summary>
+	public partial interface IMainImageControls : IPublishedContent
+	{
+		/// <summary>Main Image</summary>
+		IPublishedContent MainImage { get; }
+	}
+
+	/// <summary>Main Image Controls</summary>
+	[PublishedContentModel("mainImageControls")]
+	public partial class MainImageControls : PublishedContentModel, IMainImageControls
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "mainImageControls";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public MainImageControls(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<MainImageControls, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Main Image: Choose the main background image
+		///</summary>
+		[ImplementPropertyType("mainImage")]
+		public IPublishedContent MainImage
+		{
+			get { return GetMainImage(this); }
+		}
+
+		/// <summary>Static getter for Main Image</summary>
+		public static IPublishedContent GetMainImage(IMainImageControls that) { return that.GetPropertyValue<IPublishedContent>("mainImage"); }
 	}
 
 	/// <summary>Folder</summary>

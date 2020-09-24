@@ -1,0 +1,104 @@
+body {
+    font-family: Roboto;
+    margin: 40px;
+
+}
+
+.section-image {
+    background-image: url("images/earthday.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    height: 500px;
+    position: relative;
+    margin-bottom: 40px;
+
+
+}
+
+.text-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+}
+
+.section-lorem {
+    text-align: center;
+    padding-right: 15%;
+    padding-left: 25%;
+
+
+}
+
+.container {
+    max-width: 1200px;
+    text-align: justify;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+h1,
+h2 {
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 8px;
+}
+h1 {
+    font-size: 54px;
+    color: #f3f3f1;
+}
+
+h2 {
+    font-size: 42px;
+    color: #080806;
+}
+
+p {
+    margin: 20px 0;
+    color: #141413;
+    line-height: 24px;
+}
+
+.short-text {
+    display: none;
+}
+
+@media only screen and (max-width: 580px) {
+    .short-text {
+        display: inline-block;
+    }
+
+    .full-text {
+        display: none;
+    }
+
+    .solid {
+        display: none;
+    }
+
+    body {
+        margin: 0px;
+
+    }
+
+    .section-image {
+        background-image: url("images/landscape.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 500px;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    .container {
+        padding: 0rem;
+    }
+}

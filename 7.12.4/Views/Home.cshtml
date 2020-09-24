@@ -1,8 +1,37 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedContentModels.Home>
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
 
 @* the fun starts here *@
 
-@Model.Title
+
+<body>
+
+
+    <header>
+        <div class="section-image">
+            <div class="text-image">
+                <h1>@Model.Title </h1>
+            </div>
+        </div>
+    </header>
+    <hr class="solid">
+
+    <div class="section-lorem">
+        <h2 class="full-text">@Model.PageTitle </h2>
+
+        <h2 class="short-text"> @Model.TitleMobileMode</h2>
+    </div>
+    <div class="container">
+
+        <p>
+            @Model.MainContent
+        </p>
+
+    </div>
+
+</body>
+
+</html>
+
