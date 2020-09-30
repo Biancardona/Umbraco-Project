@@ -1,203 +1,316 @@
-body {
-    margin: 40px;
-    color: #333;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.section-image {
-    background-image: url("images/earthday.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    height: 500px;
-    position: relative;
-    margin-bottom: 40px;
-
-
-}
-
-.text-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-}
-
-hr.solid {
-    border-top: 3px solid #bbb;
-}
-
-.section-lorem, .text-title {
-    text-align: center;
-}
-.section-lorem{
-    padding-right: 15%;
-    padding-left: 25%;
-}
-
-.container {
-    max-width: 1200px;
-    text-align: justify;
-    margin: 0 auto;
-    padding: 0 3rem;
-}
-.text-title {
-    border-radius: 5px;
-    padding: 4px;
-    padding-bottom:30px;
-}
-
-h1,
-h2 {
-    font-weight: 700 !important;
-    margin-top: 40px;
-    margin-bottom: 8px;
-    line-height: 1.1;
-    font-family: soleto,sans-serif,arial!important;
-}
-h1 {
-    font-size: 36pt;
-    color: #ffffff;
-}
-
-h2 {
-    font-size: 30px;
-    color: inherit;
-}
-.short-text {
-    display: none;
-}
-
-p {
-    margin: 10px 0;
-    color: #141413;
-    line-height: 1.75;
-    font-family: open-sans,sans-serif!important;
-    text-align:left;
-}
-#texto:before {
-    content: "Pellentesque habitant morbi tristique senectus";
-}
-img {
-    display: block;
-    max-width: 100%;
-}
-.cards {
-    display: -ms-grid;
-    display: grid;
-    grid-gap: 55px;
-    max-width: 1000px;
-    margin: 1em auto;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    -ms-grid-columns: 100px 100px 100px;
-    padding: 2 0px;
-    padding-top:5px;
-}
-
-
-.card {
-    display: -ms-grid;
-    -ms-grid-rows: -webkit-max-content 200px 2fr;
-    -ms-grid-rows: max-content 200px 2fr;
-    grid-template-rows: -webkit-max-content 200px 2fr;
-    grid-template-rows: max-content 200px 2fr;
-    border: 1px solid #999;
-    border-radius: 3px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background: rgb(221, 220, 220);
-}
-
-.item1 {
-    grid-template-columns: minmax(250px, 1fr);
-    -ms-grid-column: 1;
-}
-
-.item2 {
-    grid-template-columns: minmax(250px, 1fr);
-    -ms-grid-column: 2;
-}
-
-.item3 {
-    grid-template-columns: minmax(250px, 1fr);
-    -ms-grid-column: 3;
-}
-
-.card-img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.card h2 {
-    margin: 0;
-    font-size:20px;
-    font-weight:500!important;
-}
-
-.card .card_info  {
-    padding: 20px;
-    padding-top:20px;
-    font-size:12px;
-    background: rgb(221, 220, 220);
-}
-
-.link_learn {
-    color: #337ab7;
-    padding: .2rem;
-    background: rgb(221, 220, 220);
-    font-size:16px;
-    text-decoration:none;
-}
-
-
-
-@media only screen and (max-width: 580px) {
-    .short-text {
-        display: inline-block;
-    }
-
-    .full-text {
-        display: none;
-    }
-
-    .solid {
-        display: none;
-    }
-
+/* Chrome  */
+@supports not (-ms-high-contrast: none) {
     body {
-        margin: 0px;
-
+        margin: 40px;
+        color: #333;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 
     .section-image {
-        background-image: url("images/landscape.jpg");
+        background-image: url("images/earthday.jpg");
         background-repeat: no-repeat;
+        background-size: cover;
         background-position: center;
+        overflow: hidden;
         height: 500px;
         position: relative;
-        margin-bottom: 0px;
+        margin-bottom: 40px;
+    }
+
+    .text-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+
+    hr.solid {
+        border-top: 3px solid #bbb;
+    }
+
+    .section-lorem, .text-title {
+        text-align: center;
+    }
+
+    .section-lorem {
+        padding-right: 15%;
+        padding-left: 25%;
     }
 
     .container {
-        padding: 0rem;
-    }
-    .card {
-        width: 100%;
-        display: block;
-        margin-bottom: 20px;
-        margin: 0%;
-        background: rgb(221, 220, 220);
+        max-width: 1200px;
+        text-align: justify;
+        margin: 0 auto;
+        padding: 0 3rem;
     }
 
-    ..text-title h1 {
-        margin: 0px;
-        padding: 0px;
+    .text-title {
+        border-radius: 5px;
+        padding: 4px;
+        padding-bottom: 30px;
+    }
+
+    h1,
+    h2 {
+        font-weight: 700 !important;
+        margin-top: 40px;
+        margin-bottom: 8px;
+        line-height: 1.1;
+        font-family: soleto,sans-serif,arial !important;
+    }
+
+    h1 {
+        font-size: 36pt;
+        color: #ffffff;
+    }
+
+    h2 {
+        font-size: 30px;
+        color: inherit;
+    }
+
+    .short-text {
+        display: none;
+    }
+
+    p {
+        margin: 10px 0;
+        color: #141413;
+        line-height: 1.75;
+        font-family: open-sans,sans-serif !important;
+        text-align: left;
     }
 
     #texto:before {
-        content: "Resources for Employers";
+        content: "Pellentesque habitant morbi tristique senectus";
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    .cards {
+        display: -ms-grid;
+        display: grid;
+        grid-gap: 55px;
+        max-width: 1000px;
+        margin: 1em auto;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        -ms-grid-columns: 100px 100px 100px;
+        padding: 2 0px;
+        padding-top: 5px;
     }
 }
+
+
+    .card {
+        display: -ms-grid;
+        -ms-grid-rows: -webkit-max-content 200px 2fr;
+        -ms-grid-rows: max-content 200px 2fr;
+        grid-template-rows: -webkit-max-content 200px 2fr;
+        grid-template-rows: max-content 200px 2fr;
+        border: 1px solid #999;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        background: rgb(221, 220, 220);
+    }
+
+    .item1 {
+        grid-template-columns: minmax(250px, 1fr);
+        -ms-grid-column: 1;
+    }
+
+    .item2 {
+        grid-template-columns: minmax(250px, 1fr);
+        -ms-grid-column: 2;
+    }
+
+    .item3 {
+        grid-template-columns: minmax(250px, 1fr);
+        -ms-grid-column: 3;
+    }
+
+    .card-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500 !important;
+    }
+
+    .card .card_info {
+        padding: 20px;
+        padding-top: 20px;
+        font-size: 12px;
+        background: rgb(221, 220, 220);
+    }
+
+    .link_learn {
+        color: #337ab7;
+        padding: .2rem;
+        background: rgb(221, 220, 220);
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+
+
+    @media only screen and (max-width: 580px) {
+        .short-text {
+            display: inline-block;
+        }
+
+        .full-text {
+            display: none;
+        }
+
+        .solid {
+            display: none;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        .section-image {
+            background-image: url("images/landscape.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 500px;
+            position: relative;
+            margin-bottom: 0px;
+        }
+
+        .container {
+            padding: 0rem;
+        }
+
+        .card {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+            margin: 0%;
+            background: rgb(221, 220, 220);
+        }
+
+        ..text-title h1 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #texto:before {
+            content: "Resources for Employers";
+        }
+    }
+    /* Put your IE-only styles here. Works for IS 10 & IE 11/*/
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0;
+            top: 50%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: 100%;
+        }
+
+        p {
+            max-width: 300px;
+        }
+
+        .container {
+            text-align: center;
+            font-size: 25px;
+            transition: 0.3s;
+            border-radius: 5px;
+            padding: 4px;
+        }
+
+        #texto:before {
+            content: "Pellentesque habitant morbi tristique senectus";
+        }
+
+
+
+        .cards {
+            display: -ms-grid;
+            display: grid;
+            grid-gap: 55px;
+            max-width: 1000px;
+            max-height: 100px;
+            margin: 1em auto;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            padding: 1px;
+        }
+
+
+        .card {
+            margin-bottom: 1000px;
+            display: -ms-grid;
+            display: grid;
+            -ms-grid-columns: 3fr 3fr 3fr;
+            grid-template-rows: max-content 1fr;
+            padding: 2px;
+            border-radius: 3px;
+        }
+
+        .item1 {
+            grid-column: 1;
+            -ms-grid-column: 1;
+            grid-row: 1;
+            -ms-grid-row: 1;
+        }
+
+        .item2 {
+            grid-column: 2;
+            -ms-grid-column: 2;
+            grid-row: 1;
+            -ms-grid-row: 1;
+        }
+
+        .item3 {
+            grid-column: 3;
+            -ms-grid-column: 3;
+            grid-row: 1;
+            -ms-grid-row: 1;
+        }
+
+        .card-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            max-width: 300px;
+        }
+
+        .card h4 {
+            margin: 0;
+            padding: .5rem;
+        }
+
+        .card .card_info {
+            padding: 1rem;
+            background: rgb(221, 220, 220);
+            max-width: 300px;
+        }
+
+        .link_learn {
+            color: black;
+            padding: .2rem;
+            background: rgb(221, 220, 220);
+        }
+    }

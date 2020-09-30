@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "e37ecb910a21d440")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "86896d967bd453a8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
 
 
 // FILE: models.generated.cs
@@ -66,6 +66,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Content Grid
+		///</summary>
+		[ImplementPropertyType("contentGrid")]
+		public Newtonsoft.Json.Linq.JToken ContentGrid
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContentGrid(this); }
+		}
+
+		///<summary>
 		/// Main Content: Enter the main content for this page
 		///</summary>
 		[ImplementPropertyType("mainContent")]
@@ -115,6 +124,9 @@ namespace Umbraco.Web.PublishedContentModels
 	/// <summary>Basic Content Controls</summary>
 	public partial interface IBasicContentControls : IPublishedContent
 	{
+		/// <summary>Content Grid</summary>
+		Newtonsoft.Json.Linq.JToken ContentGrid { get; }
+
 		/// <summary>Main Content</summary>
 		IHtmlString MainContent { get; }
 
@@ -149,6 +161,18 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Content Grid
+		///</summary>
+		[ImplementPropertyType("contentGrid")]
+		public Newtonsoft.Json.Linq.JToken ContentGrid
+		{
+			get { return GetContentGrid(this); }
+		}
+
+		/// <summary>Static getter for Content Grid</summary>
+		public static Newtonsoft.Json.Linq.JToken GetContentGrid(IBasicContentControls that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("contentGrid"); }
 
 		///<summary>
 		/// Main Content: Enter the main content for this page
@@ -305,32 +329,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Cards</summary>
-	[PublishedContentModel("cards")]
-	public partial class Cards : PublishedContentModel
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "cards";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public Cards(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Cards, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-	}
-
 	/// <summary>Spotlights</summary>
 	[PublishedContentModel("spotlights")]
 	public partial class Spotlights : PublishedContentModel
@@ -383,16 +381,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Cards Control</summary>
-	[PublishedContentModel("cardsControl")]
-	public partial class CardsControl : PublishedContentModel
+	/// <summary>Content</summary>
+	[PublishedContentModel("home1")]
+	public partial class Home1 : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "cardsControl";
+		public new const string ModelTypeAlias = "home1";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public CardsControl(IPublishedContent content)
+		public Home1(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -403,9 +401,72 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<CardsControl, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home1, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Cards Title: Enter the title of the cards section
+		///</summary>
+		[ImplementPropertyType("titleCards")]
+		public string TitleCards
+		{
+			get { return this.GetPropertyValue<string>("titleCards"); }
+		}
+
+		///<summary>
+		/// Content Grid
+		///</summary>
+		[ImplementPropertyType("contentGrid")]
+		public Newtonsoft.Json.Linq.JToken ContentGrid
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContentGrid(this); }
+		}
+
+		///<summary>
+		/// Main Content: Enter the main content for this page
+		///</summary>
+		[ImplementPropertyType("mainContent")]
+		public IHtmlString MainContent
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetMainContent(this); }
+		}
+
+		///<summary>
+		/// Page Title: Enter a title
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetPageTitle(this); }
+		}
+
+		///<summary>
+		/// Title Mobile Mode: Enter the title will be displayed in mobile mode
+		///</summary>
+		[ImplementPropertyType("titleMobileMode")]
+		public string TitleMobileMode
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetTitleMobileMode(this); }
+		}
+
+		///<summary>
+		/// Title: Enter a title for the page
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return Umbraco.Web.PublishedContentModels.HeaderControl.GetTitle(this); }
+		}
+
+		///<summary>
+		/// Main Image: Choose the main background image
+		///</summary>
+		[ImplementPropertyType("mainImage")]
+		public IPublishedContent MainImage
+		{
+			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
 		}
 	}
 
