@@ -16,21 +16,25 @@
     <div class="spot-container">
         <div class="card-container">
             <div class="headers">
-                <img  id="image" src="@Umbraco.TypedMedia(Model.MacroParameters["Image"].ToString()).Url()" alt="Picture" >
-           
-            </div>
-
-            <div class="description">
-                <div class="content">
-                    <h3>@Html.Raw(HttpUtility.HtmlDecode(name))</h3>
-
-                    <span class="text">
-                      @description
-                    </span>
+                <div class="overlay">
+                    <h3 class="line">Consultant Spotlight </h3>
+                    <h4>Addie Ervin</h4>
+              </div>
+                    <img id="image" src="@Umbraco.TypedMedia(Model.MacroParameters["Image"].ToString()).Url()" alt="Picture">
 
                 </div>
-                <button class="button-orange" value="Input Button">Learn More</button>
+
+                <div class="description">
+                    <div class="content">
+                        <h3>@Html.Raw(HttpUtility.HtmlDecode(name))</h3>
+
+                        <span class="text">
+                            @description
+                        </span>
+
+                    </div>
+                    <button class="button-orange" value="Input Button">Learn More</button>
+                </div>
             </div>
-        </div>
     </div>
 </div>
