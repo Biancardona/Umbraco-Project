@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "86896d967bd453a8")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.5")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "31490c877d8815e8")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -42,7 +42,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("home")]
-	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls
+	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls, ISpotlights
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "home";
@@ -63,6 +63,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContent(this); }
 		}
 
 		///<summary>
@@ -118,12 +127,24 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
 		}
+
+		///<summary>
+		/// Spotlights Card
+		///</summary>
+		[ImplementPropertyType("spotlightsCard")]
+		public Newtonsoft.Json.Linq.JToken SpotlightsCard
+		{
+			get { return Umbraco.Web.PublishedContentModels.Spotlights.GetSpotlightsCard(this); }
+		}
 	}
 
 	// Mixin content Type 1063 with alias "basicContentControls"
 	/// <summary>Basic Content Controls</summary>
 	public partial interface IBasicContentControls : IPublishedContent
 	{
+		/// <summary>Content</summary>
+		Newtonsoft.Json.Linq.JToken Content { get; }
+
 		/// <summary>Content Grid</summary>
 		Newtonsoft.Json.Linq.JToken ContentGrid { get; }
 
@@ -161,6 +182,18 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
+		{
+			get { return GetContent(this); }
+		}
+
+		/// <summary>Static getter for Content</summary>
+		public static Newtonsoft.Json.Linq.JToken GetContent(IBasicContentControls that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
 
 		///<summary>
 		/// Content Grid
@@ -329,32 +362,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	/// <summary>Spotlights</summary>
-	[PublishedContentModel("spotlights")]
-	public partial class Spotlights : PublishedContentModel
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "spotlights";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public Spotlights(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Spotlights, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-	}
-
 	/// <summary>Find Talent</summary>
 	[PublishedContentModel("findTalent")]
 	public partial class FindTalent : PublishedContentModel
@@ -416,6 +423,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Content
+		///</summary>
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
+		{
+			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContent(this); }
+		}
+
+		///<summary>
 		/// Content Grid
 		///</summary>
 		[ImplementPropertyType("contentGrid")]
@@ -468,6 +484,52 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
 		}
+	}
+
+	// Mixin content Type 1094 with alias "spotlights"
+	/// <summary>Spotlights</summary>
+	public partial interface ISpotlights : IPublishedContent
+	{
+		/// <summary>Spotlights Card</summary>
+		Newtonsoft.Json.Linq.JToken SpotlightsCard { get; }
+	}
+
+	/// <summary>Spotlights</summary>
+	[PublishedContentModel("spotlights")]
+	public partial class Spotlights : PublishedContentModel, ISpotlights
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "spotlights";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Spotlights(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Spotlights, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Spotlights Card
+		///</summary>
+		[ImplementPropertyType("spotlightsCard")]
+		public Newtonsoft.Json.Linq.JToken SpotlightsCard
+		{
+			get { return GetSpotlightsCard(this); }
+		}
+
+		/// <summary>Static getter for Spotlights Card</summary>
+		public static Newtonsoft.Json.Linq.JToken GetSpotlightsCard(ISpotlights that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("spotlightsCard"); }
 	}
 
 	/// <summary>Folder</summary>

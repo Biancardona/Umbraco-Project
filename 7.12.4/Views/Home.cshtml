@@ -8,7 +8,6 @@
 
 <body>
 
-
     <header>
         <div class="section-image">
             <div class="text-image">
@@ -32,8 +31,13 @@
     <div class="text-title">
         <h2 id="texto"></h2>
     </div>
-              @Html.GetGridHtml(Model, "contentGrid")
+    @Html.GetGridHtml(Model, "contentGrid")
+    @Html.GetGridHtml(Model, "spotlightsCard")
+
+    
+
 
 </body>
-</html>
+
+    </html>
 
