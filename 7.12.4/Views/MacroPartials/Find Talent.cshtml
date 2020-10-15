@@ -1,0 +1,218 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+@{
+
+    string title = @Model.MacroParameters["Title"] != null ? @Model.MacroParameters["Title"].ToString() : "";
+    string titleArticle = @Model.MacroParameters["TitleArticle"] != null ? @Model.MacroParameters["TitleArticle"].ToString() : "";
+    string description = @Model.MacroParameters["Description"] != null ? @Model.MacroParameters["Description"].ToString() : "";
+    string titleArticle2 = @Model.MacroParameters["TitleArticle2"] != null ? @Model.MacroParameters["TitleArticle2"].ToString() : "";
+    string description2 = @Model.MacroParameters["Description2"] != null ? @Model.MacroParameters["Description2"].ToString() : "";
+    string titleArticle3 = @Model.MacroParameters["TitleArticle3"] != null ? @Model.MacroParameters["TitleArticle"].ToString() : "";
+    string description3 = @Model.MacroParameters["Description3"] != null ? @Model.MacroParameters["Description"].ToString() : "";
+    string titleArticle4 = @Model.MacroParameters["TitleArticle4"] != null ? @Model.MacroParameters["TitleArticle4"].ToString() : "";
+    string description4 = @Model.MacroParameters["Description4"] != null ? @Model.MacroParameters["Description4"].ToString() : "";
+
+}
+<body class="@Umbraco.Field("cardControl")">
+    <div class="container6">
+        <div class="title6">
+            <h1 id="texto6"> @title</h1>
+        </div>
+
+        <div class="cards6">
+
+            <div class="column6">
+                <div class="item6">
+                    <div class="card-img6" style="background-image: url('@Umbraco.TypedMedia(Model.MacroParameters["Image"].ToString()).Url()');
+                         alt="Virtual Work Enviroment">
+                        <div class="card_info6">
+                            <article>
+                                <h3> @titleArticle </h3>
+                                <h2 class="teaser6">@description</h2>
+                                <a href="#" class="link_learn6">Learn more</a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item6">
+                    <div class="card-img6" style="background-image: url('images/Image2.jpg');"
+                         alt="Virtual Work Enviroment">
+                        <div class="card_info6">
+                            <article>
+                                <h3> @titleArticle2</h3>
+                                <h2 class="teaser6">@description2</h2>
+                                <a href="#" class="link_learn6">Learn more</a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column2">
+                <div class="item6">
+                    <div class="card-img6" style="background-image: url('images/Image3.jpg');"
+                         alt="Virtual Work Enviroment">
+                        <div class="card_info6">
+                            <article role="article">
+                                <h3> @titleArticle3</h3>
+                                <h2 class="teaser6"> @description3</h2>
+                                <a href="#" class="link_learn6">Learn more</a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item6">
+                    <div class="card-img6" style="background-image: url('images/Image4.jpg');"
+                         alt="Virtual Work Enviroment">
+                        <div class="card_info6">
+                            <article>
+                                <h3> @titleArticle4</h3>
+                                <h2 class="teaser6">@description4</h2>
+                                <a href="#" id="client" class="link_learn6">Client</a>
+                                <a href="#" id="candidate" class="link_learn6">Candidate</a>
+                                <a href="#" id="vendors" class="link_learn6">Vendors</a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+@*<style>
+        body {
+        font-family: soleto, sans-serif, arial !important;
+        line-height: 1.42857143;
+        margin: 0%;
+        padding: 0%;
+
+    }
+
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        min-height: 1px;
+
+    }
+      h1 {
+        text-align: center;
+        padding-top: 20px;
+        font-size: 36px;
+        padding-bottom: 0px;
+    }
+    .item {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .card-img {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .card-info article {
+        padding: 30px !important;
+
+    }
+
+    .cards {
+        display: flex;
+        color: #fff;
+        float: left;
+        padding: 80px;
+        margin: 10px;
+        padding-top: 20px;
+    }
+
+    h3 {
+        font-size: 24px;
+        position: relative;
+    }
+
+    h3::before {
+        background: #e36f1e;
+        bottom: -10px;
+        content: "";
+        left: 0;
+        position: absolute;
+        height: 5px;
+        width: 50px;
+    }
+
+    .teaser {
+        font-size: 22px;
+        position: relative;
+        top: 160px;
+    }
+
+    h2,
+    h3 {
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+        margin-top: 20px;
+        margin-bottom: 10px
+    }
+
+    article {
+        min-height: 400px;
+        padding: 20px;
+        position: relative;
+    }
+
+    .link_learn {
+        bottom: 30px;
+        position: absolute;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 22px;
+        text-align: center;
+        padding: 8px 20px;
+        font-family: Soleto, "Helvetica Neue", "Helvetica Medium", Helvetica, Arial, sans-serif !important;
+        font-size: 14px;
+    }
+
+    #candidate {
+        margin-left: 100px;
+    }
+
+    #vendors {
+        margin-left: 225px;
+    }
+
+    @media(max-width: 970px) {
+        body html {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .cards {
+            display: block;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container .item  {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .item {
+            padding-bottom: 50px !important;
+        }
+        .container  {
+            padding: 0px;
+            padding-left :0px;
+
+        }
+    }
+
+
+        </style>*@

@@ -4,11 +4,12 @@
 }
 
 @* the fun starts here *@
-
-
 <body>
 
     <header>
+
+        @Html.GetGridHtml(Model, "navigationPage")
+
         <div class="section-image">
             <div class="text-image">
                 <h1>@Model.Title </h1>
@@ -31,13 +32,71 @@
     <div class="text-title">
         <h2 id="texto"></h2>
     </div>
+
+
     @Html.GetGridHtml(Model, "contentGrid")
     @Html.GetGridHtml(Model, "spotlightsCard")
-
-    
-
-
 </body>
-
     </html>
+
+<style>
+    #site-logo {
+        position: absolute;
+        left: 0;
+        height: 50px;
+        top: 25px;
+        transition: all .3s;
+    }
+    /* Navbar links */
+    #navbar a {
+        float: right;
+        display: block;
+        color: #014a8e;
+        text-align: center;
+        padding: 25px 20px 10px 10px;
+        text-decoration: none;
+    }
+
+    #primary-menu {
+        overflow-y: hidden;
+        clear: both;
+        float: left;
+        font: 16px Soleto;
+        margin-left: 300px;
+        text-transform: uppercase;
+        zoom: 1;
+        position: absolute;
+    }
+
+    .header-container {
+        padding-right: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    /* Style the navbar */
+    #navbar {
+        overflow: hidden;
+        background-color: #fff;
+        height: 100px;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: height .3s;
+    }
+    /* Page content */
+    .content {
+        padding: 16px;
+    }
+    /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+        /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky + .content {
+            padding-top: 10px;
+        }
+
+</style>
 

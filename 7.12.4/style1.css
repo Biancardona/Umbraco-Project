@@ -1,0 +1,131 @@
+/** body {
+    font-family: soleto, sans-serif, arial !important;
+    line-height: 1.42857143;
+    margin: 0%;
+    padding: 0%;
+
+}
+
+.container6 {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    min-height: 1px;
+
+}
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 36px;
+    padding-bottom: 0px;
+}
+.item6 {
+    padding: 20px;
+    margin: 20px;
+}
+
+.card-img6 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-info6 article {
+    padding: 30px !important;
+
+}
+
+.cards6 {
+    display: flex;
+    color: #fff;
+    float: left;
+    padding: 80px;
+    margin: 10px;
+    padding-top: 20px;
+}
+
+h3 {
+    font-size: 24px;
+    position: relative;
+}
+
+h3::before {
+    background: #e36f1e;
+    bottom: -10px;
+    content: "";
+    left: 0;
+    position: absolute;
+    height: 5px;
+    width: 50px;
+}
+
+.teaser3 {
+    font-size: 22px;
+    position: relative;
+    top: 160px;
+}
+
+h2,
+h3 {
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+article {
+    min-height: 400px;
+    padding: 20px;
+    position: relative;
+}
+
+.link_learn3 {
+    bottom: 30px;
+    position: absolute;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 22px;
+    text-align: center;
+    padding: 8px 20px;
+    font-family: Soleto, "Helvetica Neue", "Helvetica Medium", Helvetica, Arial, sans-serif !important;
+    font-size: 14px;
+}
+
+#candidate {
+    margin-left: 100px;
+}
+
+#vendors {
+    margin-left: 225px;
+}
+
+@media(max-width: 970px) {
+    body html {
+        margin: 0px;
+        padding: 0px;
+
+    }
+
+    .cards6 {
+        display: block;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .container6 .item6  {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .item6 {
+        padding-bottom: 50px !important;
+    }
+    .container6  {
+        padding: 0px;
+        padding-left :0px;
+
+    }
+}*/

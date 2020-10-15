@@ -1,7 +1,7 @@
 /* Chrome  */
 @supports not (-ms-high-contrast: none) {
     body {
-        margin: 40px;
+        margin: 0px 40px;
         color: #333;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
@@ -214,8 +214,6 @@
         margin-top: 20px;
     }
 
-
-
     .spot-container {
         align-items: center;
         height: 50vh;
@@ -256,19 +254,14 @@
         background-color: rgb(15 152 179);
         background-color: rgba(15, 152, 179, 2);
         overflow: hidden;
-        background-image: url("images/jonbarnes.jpg");
+        /*background-image: url("images/jonbarnes.jpg");*/
         background-repeat: no-repeat;
         background-position: right;
     }
 
-
-
     #image {
         display: none;
     }
-
-
-
 
     .text span {
         line-height: 1.5 !important;
@@ -332,6 +325,7 @@
         content: "";
     }
 }
+
 
 @media screen and (max-width: 880px) {
     html, body {

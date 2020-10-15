@@ -19,14 +19,14 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "31490c877d8815e8")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "35d8f68818564d65")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("home")]
-	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls, ISpotlights
+	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls, INavigationControl, ISpotlights
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "home";
@@ -110,6 +110,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public IPublishedContent MainImage
 		{
 			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
+		}
+
+		///<summary>
+		/// Navigation Page
+		///</summary>
+		[ImplementPropertyType("navigationPage")]
+		public Newtonsoft.Json.Linq.JToken NavigationPage
+		{
+			get { return Umbraco.Web.PublishedContentModels.NavigationControl.GetNavigationPage(this); }
 		}
 
 		///<summary>
@@ -348,7 +357,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Find Talent</summary>
 	[PublishedContentModel("findTalent")]
-	public partial class FindTalent : PublishedContentModel
+	public partial class FindTalent : PublishedContentModel, ICardsControl
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "findTalent";
@@ -369,6 +378,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FindTalent, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// CardControl
+		///</summary>
+		[ImplementPropertyType("cardControl")]
+		public Newtonsoft.Json.Linq.JToken CardControl
+		{
+			get { return Umbraco.Web.PublishedContentModels.CardsControl.GetCardControl(this); }
 		}
 	}
 
@@ -514,6 +532,133 @@ namespace Umbraco.Web.PublishedContentModels
 
 		/// <summary>Static getter for Spotlights Card</summary>
 		public static Newtonsoft.Json.Linq.JToken GetSpotlightsCard(ISpotlights that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("spotlightsCard"); }
+	}
+
+	// Mixin content Type 1098 with alias "cardsControl"
+	/// <summary>Cards Control</summary>
+	public partial interface ICardsControl : IPublishedContent
+	{
+		/// <summary>CardControl</summary>
+		Newtonsoft.Json.Linq.JToken CardControl { get; }
+	}
+
+	/// <summary>Cards Control</summary>
+	[PublishedContentModel("cardsControl")]
+	public partial class CardsControl : PublishedContentModel, ICardsControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "cardsControl";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public CardsControl(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<CardsControl, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// CardControl
+		///</summary>
+		[ImplementPropertyType("cardControl")]
+		public Newtonsoft.Json.Linq.JToken CardControl
+		{
+			get { return GetCardControl(this); }
+		}
+
+		/// <summary>Static getter for CardControl</summary>
+		public static Newtonsoft.Json.Linq.JToken GetCardControl(ICardsControl that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("cardControl"); }
+	}
+
+	// Mixin content Type 1109 with alias "navigationControl"
+	/// <summary>NavigationControl</summary>
+	public partial interface INavigationControl : IPublishedContent
+	{
+		/// <summary>Navigation Page</summary>
+		Newtonsoft.Json.Linq.JToken NavigationPage { get; }
+	}
+
+	/// <summary>NavigationControl</summary>
+	[PublishedContentModel("navigationControl")]
+	public partial class NavigationControl : PublishedContentModel, INavigationControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "navigationControl";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public NavigationControl(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NavigationControl, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Navigation Page
+		///</summary>
+		[ImplementPropertyType("navigationPage")]
+		public Newtonsoft.Json.Linq.JToken NavigationPage
+		{
+			get { return GetNavigationPage(this); }
+		}
+
+		/// <summary>Static getter for Navigation Page</summary>
+		public static Newtonsoft.Json.Linq.JToken GetNavigationPage(INavigationControl that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("navigationPage"); }
+	}
+
+	/// <summary>Navigation</summary>
+	[PublishedContentModel("navigation")]
+	public partial class Navigation : PublishedContentModel, INavigationControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "navigation";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Navigation(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Navigation, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Navigation Page
+		///</summary>
+		[ImplementPropertyType("navigationPage")]
+		public Newtonsoft.Json.Linq.JToken NavigationPage
+		{
+			get { return Umbraco.Web.PublishedContentModels.NavigationControl.GetNavigationPage(this); }
+		}
 	}
 
 	/// <summary>Folder</summary>

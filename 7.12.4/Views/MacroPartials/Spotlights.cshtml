@@ -1,13 +1,17 @@
 ﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
 
-@{
-    string title = @Model.MacroParameters["Title"] != null ? @Model.MacroParameters["Title"].ToString() : "";
-    var img = Model.MacroParameters["Image"] != null ? Model.MacroParameters["Image"].ToString() : "";
-    var image = Umbraco.TypedMedia(img);
-    string name = @Model.MacroParameters["RoleandName"] != null ? @Model.MacroParameters["RoleandName"].ToString() : "";
-    string description = @Model.MacroParameters["Description"] != null ? @Model.MacroParameters["Description"].ToString() : "";
+   @{
 
-}
+       string title = @Model.MacroParameters["Title"] != null ? @Model.MacroParameters["Title"].ToString() : "";
+       var img = Model.MacroParameters["Image"] != null ? Model.MacroParameters["Image"].ToString() : "";
+     //  var image = Umbraco.TypedMedia(img);
+
+       string roleandname = @Model.MacroParameters["RoleandName"] != null ? @Model.MacroParameters["RoleandName"].ToString() : "";
+       string description = @Model.MacroParameters["Description"] != null ? @Model.MacroParameters["Description"].ToString() : "";
+       string role = @Model.MacroParameters["Role"] != null ? @Model.MacroParameters["Role"].ToString() : "";
+       string name = @Model.MacroParameters["Name"] != null ? @Model.MacroParameters["Name"].ToString() : "";
+
+    }
 
 <div class="text-title">
     <h2> @title </h2>
@@ -17,22 +21,23 @@
         <div class="card-container">
             <div class="headers">
                 <div class="overlay">
-                    <h3 class="line">Consultant Spotlight </h3>
-                    <h4>Addie Ervin</h4>
-                    </div>
-                    </div>
-
-                <div class="description">
-                    <div class="content">
-                        <h3>@Html.Raw(HttpUtility.HtmlDecode(name))</h3>
-
-                        <span class="text">
-                            @description
-                        </span>
-
-                    </div>
-                    <button class="button-orange" value="Input Button">Learn More</button>
+                    <h3 class="line"> @role </h3>
+                    <h4> @name </h4>
                 </div>
+                <img id="image" style="background-image: url('@Umbraco.TypedMedia(Model.MacroParameters["Image"].ToString()).Url()');" alt="Picture">
             </div>
+
+            <div class="description">
+                <div class="content">
+                    <h3>@Html.Raw(HttpUtility.HtmlDecode(roleandname))</h3>
+
+                    <span class="text">
+                        @description
+                    </span>
+
+                </div>
+                <button class="button-orange" value="Input Button">Learn More</button>
+            </div>
+        </div>
     </div>
 </div>

@@ -287,6 +287,7 @@
     <Content Include="Media\1001\earthday.jpg" />
     <Content Include="Media\1002\landscape.jpg" />
     <Content Include="Media\Web.config" />
+    <Content Include="style1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +337,8 @@
     <Content Include="Views\Partials\contentPage.cshtml" />
     <Content Include="Views\Content.cshtml" />
     <Content Include="Views\MacroPartials\Spotlights.cshtml" />
+    <Content Include="Views\MacroPartials\Find Talent.cshtml" />
+    <Content Include="Views\FindTalent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
