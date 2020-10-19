@@ -1,8 +1,203 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Web.PublishedContentModels.FindTalent>
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
 }
 
 @* the fun starts here *@
+<body>
+    @Html.GetGridHtml(Model, "navigationPage")
 
-    @Html.GetGridHtml(Model, "cardControl")
+
+    <style>
+        * body {
+            margin: 0px 40px;
+            padding: 0%;
+            font-family: soleto, sans-serif, arial !important;
+            line-height: 1.42857143;
+        }
+
+        #site-logo {
+            position: absolute;
+            left: 0;
+            height: 50px;
+            top: 20px;
+            transition: all .3s;
+        }
+
+        /* Navbar links */
+        #navbar a {
+            float: right;
+            color: #014a8e;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        navbar ul {
+        }
+
+        ul {
+            margin-top: 20px;
+            margin-bottom: 0px;
+            position: fixed;
+        }
+
+        #primary-menu ul a {
+            display: block;
+            padding: 0 10px;
+        }
+
+        #primary-menu {
+            overflow-y: hidden;
+            clear: both;
+            float: left;
+            font: 16px Soleto;
+            margin-left: 200px;
+            text-transform: uppercase;
+            zoom: 1;
+            /* position: absolute; */
+        }
+
+            #primary-menu li {
+                display: inline-block;
+                list-style: none;
+            }
+
+        .header-container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        /* Style the navbar */
+        #navbar {
+            background-color: #fff;
+            height: 100px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: height .3s;
+        }
+        /* Page content */
+        /*.content {
+            padding: 16px;
+        }*/
+
+        /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+            /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+            .sticky + .content {
+                padding-top: 60px;
+            }
+        }
+    </style>
+    @Html.GetGridHtml(Model, "findTalentPage")
+    <style>
+        .cards6 {
+            display: flex;
+            color: #fff;
+            float: left;
+            padding: 150px;
+            margin: 10px;
+            padding-top: 20px;
+        }
+
+        .container6 {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            position: relative !important;
+            min-height: 1px !important;
+            padding-top: 60px !important;
+        }
+
+        .title6 h2 {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 36px;
+            padding-bottom: 0px;
+        }
+
+        .item6 {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .card-img6 {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .card-info6 article {
+            padding: 30px !important;
+        }
+
+        article h3 {
+            font-size: 24px;
+            position: relative;
+        }
+
+        h3::before {
+            background: #e36f1e;
+            bottom: -10px;
+            content: "";
+            left: 0;
+            position: absolute;
+            height: 5px;
+            width: 50px;
+        }
+
+        .teaser6 {
+            font-size: 22px;
+            position: relative;
+            top: 160px;
+        }
+
+        h2,
+        h3 {
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+            margin-top: 20px;
+            margin-bottom: 10px
+        }
+
+        article {
+            min-height: 400px;
+            padding: 20px;
+            position: relative;
+        }
+        .column {
+            width: 100%;
+     
+        }
+
+        .link_learn6 {
+            bottom: 30px;
+            position: absolute;
+            border: 2px solid #fff;
+            color: #fff;
+            border-radius: 22px;
+            text-align: center;
+            padding: 8px 20px;
+            font-family: Soleto, "Helvetica Neue", "Helvetica Medium", Helvetica, Arial, sans-serif !important;
+            font-size: 14px;
+        }
+
+        #candidate {
+            margin-left: 100px;
+        }
+
+        #vendors {
+            margin-left: 225px;
+        }
+        }
+    </style>
+

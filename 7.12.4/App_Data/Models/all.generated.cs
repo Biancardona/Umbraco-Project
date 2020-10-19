@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "35d8f68818564d65")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "292c418a16917c2f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 
 // FILE: models.generated.cs
@@ -345,165 +345,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public static IPublishedContent GetMainImage(IMainImageControls that) { return that.GetPropertyValue<IPublishedContent>("mainImage"); }
 	}
 
-	/// <summary>Tabs</summary>
-	[PublishedContentModel("tabs")]
-	public partial class Tabs : PublishedContentModel
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "tabs";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public Tabs(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Tabs, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-	}
-
-	/// <summary>Find Talent</summary>
-	[PublishedContentModel("findTalent")]
-	public partial class FindTalent : PublishedContentModel, ICardsControl
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "findTalent";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public FindTalent(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FindTalent, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// CardControl
-		///</summary>
-		[ImplementPropertyType("cardControl")]
-		public Newtonsoft.Json.Linq.JToken CardControl
-		{
-			get { return Umbraco.Web.PublishedContentModels.CardsControl.GetCardControl(this); }
-		}
-	}
-
-	/// <summary>Content</summary>
-	[PublishedContentModel("home1")]
-	public partial class Home1 : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls
-	{
-#pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "home1";
-		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
-#pragma warning restore 0109
-
-		public Home1(IPublishedContent content)
-			: base(content)
-		{ }
-
-#pragma warning disable 0109 // new is redundant
-		public new static PublishedContentType GetModelContentType()
-		{
-			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
-		}
-#pragma warning restore 0109
-
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home1, TValue>> selector)
-		{
-			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Cards Title: Enter the title of the cards section
-		///</summary>
-		[ImplementPropertyType("titleCards")]
-		public string TitleCards
-		{
-			get { return this.GetPropertyValue<string>("titleCards"); }
-		}
-
-		///<summary>
-		/// Content
-		///</summary>
-		[ImplementPropertyType("content")]
-		public Newtonsoft.Json.Linq.JToken Content
-		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContent(this); }
-		}
-
-		///<summary>
-		/// Content Grid
-		///</summary>
-		[ImplementPropertyType("contentGrid")]
-		public Newtonsoft.Json.Linq.JToken ContentGrid
-		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetContentGrid(this); }
-		}
-
-		///<summary>
-		/// Main Content: Enter the main content for this page
-		///</summary>
-		[ImplementPropertyType("mainContent")]
-		public IHtmlString MainContent
-		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetMainContent(this); }
-		}
-
-		///<summary>
-		/// Page Title: Enter a title
-		///</summary>
-		[ImplementPropertyType("pageTitle")]
-		public string PageTitle
-		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetPageTitle(this); }
-		}
-
-		///<summary>
-		/// Title Mobile Mode: Enter the title will be displayed in mobile mode
-		///</summary>
-		[ImplementPropertyType("titleMobileMode")]
-		public string TitleMobileMode
-		{
-			get { return Umbraco.Web.PublishedContentModels.BasicContentControls.GetTitleMobileMode(this); }
-		}
-
-		///<summary>
-		/// Title: Enter a title for the page
-		///</summary>
-		[ImplementPropertyType("title")]
-		public string Title
-		{
-			get { return Umbraco.Web.PublishedContentModels.HeaderControl.GetTitle(this); }
-		}
-
-		///<summary>
-		/// Main Image: Choose the main background image
-		///</summary>
-		[ImplementPropertyType("mainImage")]
-		public IPublishedContent MainImage
-		{
-			get { return Umbraco.Web.PublishedContentModels.MainImageControls.GetMainImage(this); }
-		}
-	}
-
 	// Mixin content Type 1094 with alias "spotlights"
 	/// <summary>Spotlights</summary>
 	public partial interface ISpotlights : IPublishedContent
@@ -550,17 +391,9 @@ namespace Umbraco.Web.PublishedContentModels
 		public static Newtonsoft.Json.Linq.JToken GetSpotlightsCard(ISpotlights that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("spotlightsCard"); }
 	}
 
-	// Mixin content Type 1098 with alias "cardsControl"
-	/// <summary>Cards Control</summary>
-	public partial interface ICardsControl : IPublishedContent
-	{
-		/// <summary>CardControl</summary>
-		Newtonsoft.Json.Linq.JToken CardControl { get; }
-	}
-
 	/// <summary>Cards Control</summary>
 	[PublishedContentModel("cardsControl")]
-	public partial class CardsControl : PublishedContentModel, ICardsControl
+	public partial class CardsControl : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "cardsControl";
@@ -589,11 +422,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("cardControl")]
 		public Newtonsoft.Json.Linq.JToken CardControl
 		{
-			get { return GetCardControl(this); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("cardControl"); }
 		}
-
-		/// <summary>Static getter for CardControl</summary>
-		public static Newtonsoft.Json.Linq.JToken GetCardControl(ICardsControl that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("cardControl"); }
 	}
 
 	// Mixin content Type 1109 with alias "navigationControl"
@@ -665,6 +495,96 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Navigation, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Navigation Page
+		///</summary>
+		[ImplementPropertyType("navigationPage")]
+		public Newtonsoft.Json.Linq.JToken NavigationPage
+		{
+			get { return Umbraco.Web.PublishedContentModels.NavigationControl.GetNavigationPage(this); }
+		}
+	}
+
+	// Mixin content Type 1117 with alias "findTalentControl"
+	/// <summary>Find Talent Control</summary>
+	public partial interface IFindTalentControl : IPublishedContent
+	{
+		/// <summary>Find Talent Page</summary>
+		Newtonsoft.Json.Linq.JToken FindTalentPage { get; }
+	}
+
+	/// <summary>Find Talent Control</summary>
+	[PublishedContentModel("findTalentControl")]
+	public partial class FindTalentControl : PublishedContentModel, IFindTalentControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "findTalentControl";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FindTalentControl(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FindTalentControl, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Find Talent Page
+		///</summary>
+		[ImplementPropertyType("findTalentPage")]
+		public Newtonsoft.Json.Linq.JToken FindTalentPage
+		{
+			get { return GetFindTalentPage(this); }
+		}
+
+		/// <summary>Static getter for Find Talent Page</summary>
+		public static Newtonsoft.Json.Linq.JToken GetFindTalentPage(IFindTalentControl that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("findTalentPage"); }
+	}
+
+	/// <summary>Find Talent</summary>
+	[PublishedContentModel("findTalent")]
+	public partial class FindTalent : PublishedContentModel, IFindTalentControl, INavigationControl
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "findTalent";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public FindTalent(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FindTalent, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Find Talent Page
+		///</summary>
+		[ImplementPropertyType("findTalentPage")]
+		public Newtonsoft.Json.Linq.JToken FindTalentPage
+		{
+			get { return Umbraco.Web.PublishedContentModels.FindTalentControl.GetFindTalentPage(this); }
 		}
 
 		///<summary>

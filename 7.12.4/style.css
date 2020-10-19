@@ -4,18 +4,24 @@
         margin: 0px 40px;
         color: #333;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        line-height: 1.42857143;
     }
 
     .section-image {
         background-image: url("images/earthday.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
         overflow: hidden;
         height: 500px;
         position: relative;
         margin-bottom: 40px;
+        background-position: center;
+        padding-top: 230px
     }
+
+        .section-image .card-img6 {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
 
     .text-image {
         position: absolute;
@@ -66,7 +72,7 @@
     }
 
     h2 {
-        font-size: 30px;
+        font-size: 32px;
         color: inherit;
         text-align: center;
     }
@@ -75,6 +81,20 @@
         font-size: 24px;
         line-height: 1.1;
         font-weight: 500;
+    }
+
+    article h3 {
+        position: relative;
+    }
+
+    h3::before {
+        background: #e36f1e;
+        bottom: -10px;
+        content: "";
+        left: 0;
+        position: absolute;
+        height: 5px;
+        width: 50px;
     }
 
     h4 {
@@ -129,6 +149,7 @@
         background: rgb(221, 220, 220);
     }
 
+
     .item1 {
         grid-template-columns: minmax(250px, 1fr);
         -ms-grid-column: 1;
@@ -142,6 +163,11 @@
     .item3 {
         grid-template-columns: minmax(250px, 1fr);
         -ms-grid-column: 3;
+    }
+
+    .item4 {
+        padding: 20px;
+        margin: 20px;
     }
 
     .card-img {
@@ -186,6 +212,7 @@
         .dropbtn h4 {
             padding: 0px 0px 18px 0px;
         }
+
 
     .dropdown-content {
         display: none;
@@ -607,8 +634,6 @@
                 content: "Pellentesque habitant morbi tristique senectus";
             }
 
-
-
             .cards {
                 display: -ms-grid;
                 display: grid;
@@ -619,7 +644,14 @@
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 padding: 1px;
             }
-
+            .cards6 {
+                display: flex;
+                color: #fff;
+                float: left;
+                padding: 80px;
+                margin: 10px;
+                padding-top: 20px;
+            }
 
             .card {
                 margin-bottom: 1000px;
