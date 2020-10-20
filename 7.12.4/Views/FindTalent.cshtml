@@ -94,6 +94,17 @@
             .sticky + .content {
                 padding-top: 60px;
             }
+
+        @@media(max-width: 970px) {
+            body html {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .header-container {
+                margin: 0px;
+                padding: 0px;
+            }
         }
     </style>
     @Html.GetGridHtml(Model, "findTalentPage")
@@ -108,13 +119,13 @@
         }
 
         .container6 {
-            padding-right: 15px !important;
-            padding-left: 15px !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-            position: relative !important;
-            min-height: 1px !important;
-            padding-top: 60px !important;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+            position: relative;
+            min-height: 1px;
+            padding-top: 60px;
         }
 
         .title6 h2 {
@@ -144,7 +155,7 @@
             position: relative;
         }
 
-        h3::before {
+        .line6::before {
             background: #e36f1e;
             bottom: -10px;
             content: "";
@@ -174,9 +185,9 @@
             padding: 20px;
             position: relative;
         }
+
         .column {
             width: 100%;
-     
         }
 
         .link_learn6 {
@@ -198,6 +209,69 @@
         #vendors {
             margin-left: 225px;
         }
+
+
+
+        @@media(max-width: 1200px) {
+            .cards6 {
+                padding: 0px;
+            }
+
+            .link_learn6 {
+                padding: 8px 10px;
+            }
+
+            #vendors {
+                margin-left: 185px;
+            }
+
+            #candidate {
+                margin-left: 80px;
+            }
+        }
+
+        @@media(max-width: 880px) {
+            .cards6 {
+                padding: 0px;
+                display: block;
+            }
+        }
+
+        @@media(max-width: 640px) {
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .cards6 {
+                display: block;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .container6 .item6 {
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .item6 {
+                padding-bottom: 50px !important;
+            }
+
+            .container6 {
+                padding: 0px;
+                padding-left: 0px;
+            }
+
+            .title6 h2 {
+                padding-top: 130px;
+            }
+
+            h2 {
+                margin-top: 0px;
+            }
         }
     </style>
 
