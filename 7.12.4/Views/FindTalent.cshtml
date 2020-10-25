@@ -184,7 +184,17 @@
             min-height: 400px;
             padding: 20px;
             position: relative;
+            margin: 25px;
         }
+
+        /*.info {
+                    position: absolute;
+                    top: 210px;
+                    opacity: 0;
+                    transition: all .5s;
+                    height: 100px;
+                    overflow-y: auto;
+                }*/
 
         .column {
             width: 100%;
@@ -210,9 +220,107 @@
             margin-left: 225px;
         }
 
+        .boxes {
+            padding: 25px 30px;
+            margin: 15px !important;
+            opacity: .9;
+        }
 
 
-        @@media(max-width: 1200px) {
+        .solutions h2 h3 {
+            font-size: 24px !important;
+            color: #fff;
+            position: relative;
+        }
+
+        .solutions {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .boxes p {
+            color: #fff;
+            display: block;
+            padding: 10px 0;
+        }
+
+        p {
+            font-size: 16px !important;
+            line-height: 1.75 !important;
+        }
+
+        .hidden {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .description {
+            position: absolute;
+            top: 218px;
+            opacity: 0;
+            transition: all .5s;
+            height: 100px;
+            overflow-y: auto;
+        }
+
+        .services-box {
+            background: #7caa14;
+            margin-top: 30px;
+        }
+
+        .solutions-box {
+            background: #004b8d;
+        }
+
+        .talent-box {
+            background: #c96016;
+        }
+
+        article:hover .description {
+            opacity: 1;
+            transition: all .5s;
+            height: 100px;
+        }
+
+        article:hover .teaser6 {
+            top: 0px;
+        }
+
+        .card_info6 {
+            margin-top: 30px;
+        }
+
+            .card_info6:hover [role=article] {
+                background: #004b8d;
+            }
+
+            .card_info6:hover [role=main] {
+                background: #7caa14;
+                margin-top: 30px;
+            }
+
+            .card_info6:hover [role=role] {
+                background: #c96016;
+            }
+            .card_info6:hover [role=box] {
+                background: #004b8d;
+            }
+
+
+
+        @@media (min-width: 1200px) {
+            .hidden {
+                display: none !important;
+            }
+
+            .teaser6 {
+                top: 140px;
+            }
+        }
+
+
+
+        @@media(max-width: 1220px) {
             .cards6 {
                 padding: 0px;
             }
@@ -230,10 +338,48 @@
             }
         }
 
+        @@media (max-width: 1199px) and (min-width: 960px) {
+            .hidden {
+                display: none !important;
+            }
+
+            .teaser6 {
+                top: 140px;
+            }
+        }
+
+        @@media (max-width: 960px) and (min-width: 640px) {
+            article {
+                display: none !important;
+            }
+
+            .link_learn6 {
+                position: relative;
+                bottom: 0px;
+            }
+
+            .cards6 {
+                padding: 0px;
+                display: block;
+            }
+
+            .teaser6 {
+                top: 140px;
+            }
+        }
+
         @@media(max-width: 880px) {
             .cards6 {
                 padding: 0px;
                 display: block;
+            }
+
+            article {
+                display: none !important;
+            }
+
+            .teaser6 {
+                top: 140px;
             }
         }
 
@@ -256,10 +402,6 @@
                 margin-left: 0;
             }
 
-            .item6 {
-                padding-bottom: 50px !important;
-            }
-
             .container6 {
                 padding: 0px;
                 padding-left: 0px;
@@ -271,6 +413,29 @@
 
             h2 {
                 margin-top: 0px;
+            }
+
+            article {
+                display: none !important;
+            }
+
+            .solutions .link_learn6 {
+             
+                width: 100%;
+                /*border: 2px solid #fff;
+                color: #fff;
+                border-radius: 22px;
+                text-align: center;
+                padding: 8px 20px;
+                font-family: Soleto, "Helvetica Neue", "Helvetica Medium", Helvetica, Arial, sans-serif !important;
+                font-size: 14px;*/
+            }
+            .link_learn6 {
+                position: static;
+                bottom: 0px;
+            }
+            .boxes{
+
             }
         }
     </style>
