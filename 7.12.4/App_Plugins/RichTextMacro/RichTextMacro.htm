@@ -1,0 +1,11 @@
+﻿<div ng-controller="Macro.RichTextMacro">
+    <div ng-if="(model.value === null || model.value === '')">
+        <i class="icon icon-lightbulb-active color-red"></i>
+        <div class="help-text" style="color:red">Enter some text</div>
+    </div>
+    <div style="border: 1px solid #ccc">
+        <ng-form>
+            <umb-editor model="textInput"></umb-editor>
+        </ng-form>
+    </div>
+</div>

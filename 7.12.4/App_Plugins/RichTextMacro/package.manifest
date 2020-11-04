@@ -1,0 +1,16 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "RichTextMacro",
+      "name": "RichTextMacroEditor",
+      "isParameterEditor": true,
+      "editor": {
+        "view": "~/App_Plugins/RichTextMacro/RichTextMacro.htm",
+        "valueType": "TEXT"
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/RichTextMacro/RichTextMacro.controller.js"
+  ]
+}

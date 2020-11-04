@@ -256,6 +256,9 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\RichTextMacro\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\RichTextMacro\RichTextMacro.controller.js" />
+    <Content Include="App_Plugins\RichTextMacro\RichTextMacro.htm" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -316,6 +319,7 @@
     <Content Include="config\BackOfficeTours\getting-started.json" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="App_Plugins\RichTextMacro\package.manifest" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -339,6 +343,9 @@
     <Content Include="Views\MacroPartials\Spotlights.cshtml" />
     <Content Include="Views\MacroPartials\Find Talent.cshtml" />
     <Content Include="Views\FindTalent.cshtml" />
+    <Content Include="Views\MacroPartials\HeaderMacro.cshtml" />
+    <Content Include="Views\MacroPartials\FindTalentMacro.cshtml" />
+    <Content Include="Views\Header.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

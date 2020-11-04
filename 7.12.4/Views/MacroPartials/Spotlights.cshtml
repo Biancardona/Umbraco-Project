@@ -3,9 +3,6 @@
    @{
 
        string title = @Model.MacroParameters["Title"] != null ? @Model.MacroParameters["Title"].ToString() : "";
-       var img = Model.MacroParameters["Image"] != null ? Model.MacroParameters["Image"].ToString() : "";
-     //  var image = Umbraco.TypedMedia(img);
-
        string roleandname = @Model.MacroParameters["RoleandName"] != null ? @Model.MacroParameters["RoleandName"].ToString() : "";
        string description = @Model.MacroParameters["Description"] != null ? @Model.MacroParameters["Description"].ToString() : "";
        string role = @Model.MacroParameters["Role"] != null ? @Model.MacroParameters["Role"].ToString() : "";
@@ -16,7 +13,7 @@
 <div class="text-title">
     <h2> @title </h2>
 </div>
-<div class="container">
+<div class="main-cont">
     <div class="spot-container">
         <div class="card-container">
             <div class="headers">
