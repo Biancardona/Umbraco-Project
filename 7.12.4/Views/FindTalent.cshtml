@@ -108,7 +108,8 @@
             }
         }
     </style>
-    @Html.GetGridHtml(Model, "headerImage")
+   
+   
     <style>
         * body {
             margin: 0px;
@@ -131,13 +132,18 @@
                 height: 400px;
             }
 
+        .container-header {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
 
         strong {
             font-weight: 700;
         }
 
         .header-image h1 {
-            display: inline-block;  
+            display: inline-block;
             font-size: 24px;
             line-height: 30px;
             padding: 5px 8px;
@@ -154,17 +160,19 @@
                 width: 100%;
             }
 
-        .header-image h2 {
-            line-height: 72px;
+        #center-text {
+            line-height: 60px;
             margin: 20px 20px 20px 20px;
             font-size: 60px;
+            color: #fff;
         }
 
-        h3 {
+        .below-text {
             margin-bottom: 30px;
             line-height: 28px;
             font-size: 18px;
             font-weight: 500;
+            color: #fff;
         }
 
         sub {
@@ -186,6 +194,7 @@
             line-height: 1.75 !important;
             width: 20%;
             display: inline-block;
+            margin-top: 120px
         }
 
         .buttom {
@@ -202,7 +211,7 @@
                 padding: 0px;
             }
 
-            h2 {
+            #center-text {
                 font-size: 18px !important;
                 line-height: 24px !important;
             }
@@ -230,6 +239,7 @@
             font-family: open, sans-serif, arial !important;
             line-height: 1.42857143;
         }
+
         .cards6 {
             display: flex;
             color: #fff;
@@ -510,6 +520,7 @@
                 left: 110px;
                 margin-top: 25px;
                 margin-bottom: 180px;
+                display: none;
             }
         }
 
@@ -526,63 +537,184 @@
             .teaser6 {
                 top: 140px;
             }
-        }
-
-        @@media(max-width: 640px) {
-            body {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            .cards6 {
-                display: block;
-                margin: 0px;
-                padding: 0px;
-            }
-
-            .container6 .item6 {
-                padding-right: 0px;
-                padding-left: 0px;
-                margin-right: 0;
-                margin-left: 0;
-            }
-
-            .container6 {
-                padding: 0px;
-                padding-left: 0px;
-            }
-
-            .title6 h2 {
-                padding-top: 130px;
-            }
-
-            h2 {
-                margin-top: 0px;
-            }
-
-            article {
-                display: none !important;
-            }
-
-            .link_learn6 {
-                position: relative;
-                bottom: 0px;
-                margin-top: 20px;
-                width: 100%;
-                padding: 8px 0px 10px 0px;
-            }
-
-            #candidate, #vendors {
-                margin-left: 0px;
-            }
 
             .line6::before {
-                bottom: 0px;
-                left: 0px;
-                margin-top: 20px;
-                position: relative;
+                display: none;
             }
-        }
+
+            @@media(max-width: 640px) {
+                body {
+                    margin: 0px;
+                    padding: 0px;
+                }
+
+                .cards6 {
+                    display: block;
+                    margin: 0px;
+                    padding: 0px;
+                }
+
+                .container6 .item6 {
+                    padding-right: 0px;
+                    padding-left: 0px;
+                    margin-right: 0;
+                    margin-left: 0;
+                }
+
+                .container6 {
+                    padding: 0px;
+                    padding-left: 0px;
+                }
+
+                .title6 h2 {
+                    padding-top: 130px;
+                }
+
+                h2 {
+                    margin-top: 0px;
+                }
+
+                article {
+                    display: none !important;
+                }
+
+                .link_learn6 {
+                    position: relative;
+                    bottom: 0px;
+                    margin-top: 20px;
+                    width: 100%;
+                    padding: 8px 0px 10px 0px;
+                }
+
+                #candidate, #vendors {
+                    margin-left: 0px;
+                }
+
+                .line6::before {
+                    bottom: 0px;
+                    left: 0px;
+                    margin-top: 20px;
+                    position: relative;
+                    display: none;
+                }
+            }
     </style>
 
+    <style>
+        html,
+body {
 
+    height: 100%;
+
+}
+
+html {
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+}
+
+body {
+
+    background-position: center;
+
+    background-repeat: repeat;
+
+}
+
+.countdown-container {
+
+    position: relative;
+
+    top: 50%;
+
+    -webkit-transform: translateY(-50%);
+
+    -moz-transform: translateY(-50%);
+
+    transform: translateY(-50%);
+
+}
+
+.clock-item .inner {
+
+    height: 0px;
+
+    padding-bottom: 100%;
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+.clock-canvas {
+
+    background-color: rgba(255, 255, 255, .1);
+
+    border-radius: 50%;
+
+    height: 0px;
+
+    padding-bottom: 100%;
+
+}
+
+.text {
+
+    color: #fff;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    margin-top: -50px;
+
+    position: absolute;
+
+    top: 50%;
+
+    text-align: center;
+
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+
+    width: 100%;
+
+}
+
+.text .val {
+
+    font-size: 50px;
+
+}
+
+.text .type-time {
+
+    font-size: 20px;
+
+}
+
+@@media (min-width:768px) and (max-width:991px) {
+
+    .clock-item {
+
+        margin-bottom: 30px;
+
+    }
+
+}
+
+@@media (max-width:767px) {
+
+    .clock-item {
+
+        margin: 0px 30px 30px 30px;
+
+    }
+
+}
+    </style>

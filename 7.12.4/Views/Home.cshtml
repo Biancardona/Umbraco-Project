@@ -23,12 +23,12 @@
 
         <h2 class="short-text"> @Model.TitleMobileMode</h2>
     </div>
-    <div class="container">
+    
 
-        <p>
+        <div class="container-paragraph">
             @Model.MainContent
-        </p>
-    </div>
+        </div>
+   
     <div class="text-title">
         <h2 id="texto"></h2>
     </div>
@@ -87,8 +87,8 @@
             }
 
         .header-container {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 0px!important;
+            padding-right: 0px!important;
             margin-right: auto;
             margin-left: auto;
         }
@@ -120,122 +120,128 @@
                 padding-top: 60px;
             }
     </style>
-    @Html.GetGridHtml(Model, "headerImage")
-
-
     <style>
-        * body {
-            margin: 0px;
-            padding: 0%;
-            font-family: open, sans-serif, arial !important;
-            line-height: 1.42857143;
-        }
+    * body {
+    margin: 0px;
+    padding: 0%;
+    font-family: open, sans-serif, arial !important;
+    line-height: 1.42857143;
+    }
 
         .header-image {
             padding-top: 120px;
+            padding-bottom: 80px;
+            margin-bottom: 50px;
         }
 
-            .header-image .img {
-                background-position: center;
-                background-size: cover;
-                padding-top: 80px;
-                padding-bottom: 110px;
-                text-align: center;
-                color: #fff;
-                height: 400px;
-            }
-
-        /*.container {
+    .header-image .img {
+    background-position: center;
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 110px;
+    text-align: center;
+    color: #fff;
+    height: 400px;
+    }
+        .container-header {
             padding-left: 30px;
             padding-right: 30px;
-        }*/
-
-        strong {
-            font-weight: 700;
+            color: #fff !important;
         }
 
-        .header-image h1 {
-            display: inline-block;
-            font-size: 24px;
-            line-height: 30px;
-            padding: 5px 8px;
-            position: relative;
-        }
 
-            .header-image h1:after {
-                background: #e36f1e;
-                bottom: 0;
-                left: 0;
-                content: "";
-                height: 4px;
-                position: absolute;
-                width: 100%;
-            }
+    strong {
+    font-weight: 700;
+    }
 
-        .header-image h2 {
-            font-size: 60px;
-            line-height: 72px;
+    .header-image h1 {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 30px;
+    padding: 5px 8px;
+    position: relative;
+    }
+
+    .header-image h1:after {
+    background: #e36f1e;
+    bottom: 0;
+    left: 0;
+    content: "";
+    height: 4px;
+    position: absolute;
+    width: 100%;
+    }
+
+        #center-text  {
+            line-height: 72px!important;
             margin: 20px 20px 20px 20px;
+            font-size: 60px!important;
+            color: #fff!important;
+            text-align:center;
         }
 
-        h3 {
-            margin-bottom: 30px;
-            line-height: 28px;
-            font-size: 18px;
+        .below-text {
+            margin-bottom: 30px!important;
+            line-height: 28px!important;
+            font-size: 18px!important;
             font-weight: 500;
+            color: #fff!important;
         }
 
-        sub {
-            position: relative;
-            font-size: 75%;
-            line-height: 0;
-            vertical-align: baseline;
-        }
+    sub {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+    }
 
-        .contact-link {
-            border: 1px solid #e36f1e;
-            border-radius: 22px;
-            padding: 8px 20px;
-            background: #e36f1e;
-            color: #fff;
-            text-decoration: none;
-            font-family: Soleto,"Helvetica Neue","Helvetica Medium",Helvetica,Arial,sans-serif !important;
-            font-size: 16px !important;
-            line-height: 1.75 !important;
-            width: 20%;
-            display: inline-block;
-        }
+    .contact-link {
+    border: 1px solid #e36f1e;
+    border-radius: 22px;
+    padding: 8px 20px;
+    background: #e36f1e;
+    color: #fff;
+    text-decoration: none;
+    font-family: Soleto,"Helvetica Neue","Helvetica Medium",Helvetica,Arial,sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    width: 20%;
+    display: inline-block;
+    }
 
-        .buttom {
-            margin: 0 0 10px;
-        }
+    .buttom {
+    margin: 0 0 10px;
+    }
 
-        .inner {
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .inner {
+    margin-left: auto;
+    margin-right: auto;
+    }
 
-        @@media screen and (max-width: 800px) {
-            .container {
-                padding: 0px;
-            }
+    @@media screen and (max-width: 800px) {
+    .container {
+    padding: 0px;
+    }
 
-            h2 {
-                font-size: 18px !important;
-                line-height: 24px !important;
-            }
+    #center-text {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    }
 
-            .inner {
-                padding-left: 4px !important;
-                padding-right: 4px !important;
-                width: 93% !important;
-            }
-        }
+    .inner {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    width: 93% !important;
+    }
+    }
 
-        @@media screen and (max-width: 640px) {
-            .contact-link {
-                width: 80%;
-            }
-        }
+    @@media screen and (max-width: 640px) {
+    .contact-link {
+    width: 80%;
+    }
+    }
     </style>
+
+
+
 

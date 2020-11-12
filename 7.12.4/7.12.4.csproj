@@ -286,6 +286,8 @@
     <Content Include="images\Image3.jpg" />
     <Content Include="images\jonbarnes.jpg" />
     <Content Include="images\landscape.jpg" />
+    <Content Include="jquery.final-countdown.js" />
+    <Content Include="kinetic.js" />
     <Content Include="style.css" />
     <Content Include="Media\1001\earthday.jpg" />
     <Content Include="Media\1002\landscape.jpg" />
@@ -346,6 +348,8 @@
     <Content Include="Views\MacroPartials\HeaderMacro.cshtml" />
     <Content Include="Views\MacroPartials\FindTalentMacro.cshtml" />
     <Content Include="Views\Header.cshtml" />
+    <Content Include="Views\MacroPartials\TimePickerMacro.cshtml" />
+    <Content Include="Views\TimePicker.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -7,23 +7,27 @@
     string belowText = (!String.IsNullOrEmpty(@Model.MacroParameters["BelowText"].ToString())) ? HttpUtility.HtmlDecode(@Model.MacroParameters["BelowText"].ToString()) : null;
     string buttonName = @Model.MacroParameters["ButtonName"] != null ? @Model.MacroParameters["ButtonName"].ToString() : "";
 }
+<head>
+    <script type="text/javascript" src="~/app.js"></script>
+    <link rel="stylesheet" href="style1.css">
+</head>
 
 
 <body>
     <div class="header-image">
         <div class="img" style="background-image: url('@Umbraco.TypedMedia(Model.MacroParameters["HeaderImage"].ToString()).Url()');
              alt="Covid Resources">
-            <div class="container">
+            <div class="container-header">
                 <div class="in">
-                    <h1 id="texto"><strong> @titleHeader </strong></h1>
+                    <h1 ><strong> @titleHeader </strong></h1>
                 </div>
-                <h2> @Html.Raw(centerText) </h2>
+                <div id="center-text">@Html.Raw(@umbraco.library.RemoveFirstParagraphTag(centerText))  @*@Html.Raw(centerText)*@ </div>
                 <div class="inner">
-                    <h3>
-                        <span>
-                            @Html.Raw(belowText)
-                        </span>
-                    </h3>
+                  
+                    <div class="below-text">
+                        @Html.Raw(@umbraco.library.RemoveFirstParagraphTag(belowText))
+                    </div>
+              
                     <div class="button">
                         <a href="#" class="contact-link"> @buttonName</a>
                     </div>
@@ -31,3 +35,5 @@
             </div>
         </div>
     </div>
+
+

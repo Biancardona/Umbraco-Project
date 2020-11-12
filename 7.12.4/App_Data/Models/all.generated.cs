@@ -8,8 +8,8 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "d3d79d5771598dd9")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "a48bbcce605ff51f")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
 // FILE: models.generated.cs
@@ -42,7 +42,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Home</summary>
 	[PublishedContentModel("home")]
-	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IHeaderImageControl, IMainImageControls, INavigationControl, ISpotlights
+	public partial class Home : PublishedContentModel, IBasicContentControls, IHeaderControl, IMainImageControls, INavigationControl, ISpotlights
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "home";
@@ -117,15 +117,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Title
 		{
 			get { return Umbraco.Web.PublishedContentModels.HeaderControl.GetTitle(this); }
-		}
-
-		///<summary>
-		/// Header Image: This header will always be positioned automatically below the navbar
-		///</summary>
-		[ImplementPropertyType("headerImage")]
-		public Newtonsoft.Json.Linq.JToken HeaderImage
-		{
-			get { return Umbraco.Web.PublishedContentModels.HeaderImageControl.GetHeaderImage(this); }
 		}
 
 		///<summary>
@@ -564,7 +555,7 @@ namespace Umbraco.Web.PublishedContentModels
 
 	/// <summary>Find Talent</summary>
 	[PublishedContentModel("findTalent")]
-	public partial class FindTalent : PublishedContentModel, IFindTalentControl, IHeaderImageControl, INavigationControl
+	public partial class FindTalent : PublishedContentModel, IFindTalentControl, INavigationControl
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "findTalent";
@@ -597,15 +588,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Header Image: This header will always be positioned automatically below the navbar
-		///</summary>
-		[ImplementPropertyType("headerImage")]
-		public Newtonsoft.Json.Linq.JToken HeaderImage
-		{
-			get { return Umbraco.Web.PublishedContentModels.HeaderImageControl.GetHeaderImage(this); }
-		}
-
-		///<summary>
 		/// Navigation Page
 		///</summary>
 		[ImplementPropertyType("navigationPage")]
@@ -615,17 +597,9 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 	}
 
-	// Mixin content Type 1123 with alias "headerImageControl"
-	/// <summary>Header Image Control</summary>
-	public partial interface IHeaderImageControl : IPublishedContent
-	{
-		/// <summary>Header Image</summary>
-		Newtonsoft.Json.Linq.JToken HeaderImage { get; }
-	}
-
 	/// <summary>Header Image Control</summary>
 	[PublishedContentModel("headerImageControl")]
-	public partial class HeaderImageControl : PublishedContentModel, IHeaderImageControl
+	public partial class HeaderImageControl : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "headerImageControl";
@@ -654,11 +628,8 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("headerImage")]
 		public Newtonsoft.Json.Linq.JToken HeaderImage
 		{
-			get { return GetHeaderImage(this); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("headerImage"); }
 		}
-
-		/// <summary>Static getter for Header Image</summary>
-		public static Newtonsoft.Json.Linq.JToken GetHeaderImage(IHeaderImageControl that) { return that.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("headerImage"); }
 	}
 
 	/// <summary>Folder</summary>
